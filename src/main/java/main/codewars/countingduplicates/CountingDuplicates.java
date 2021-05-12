@@ -14,13 +14,16 @@ public class CountingDuplicates {
         for (char character : chars) {
             allChars.add(character);
         }
+
         for (int i = 0; i < allChars.size() - 1; i++) {
             for (int j = i + 1; j < allChars.size(); j++) {
-                if (allChars.get(i).equals(allChars.get(j)) && !duplicatedChars.contains(allChars.get(i))) {
+                if (allChars.get(i).equals(allChars.get(j))
+                        && !duplicatedChars.contains(allChars.get(i))) {
                     duplicatedChars.add(allChars.get(i));
                 }
             }
         }
+
         return duplicatedChars.size();
     }
 }
