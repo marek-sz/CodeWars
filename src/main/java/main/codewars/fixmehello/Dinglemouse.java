@@ -1,13 +1,13 @@
 package main.codewars.fixmehello;
 
+import java.util.LinkedHashSet;
 import java.util.Set;
-import java.util.TreeSet;
 
 public class Dinglemouse {
     String name;
     int age;
     char sex;
-    Set<String> set = new TreeSet<>();
+    Set<String> set = new LinkedHashSet<>();
 
     public Dinglemouse() {
     }
@@ -32,18 +32,17 @@ public class Dinglemouse {
 
     public String hello() {
         StringBuilder sb = new StringBuilder("Hello. ");
-        set.stream()
-                .forEach(x -> {
-                    switch (x) {
-                        case "name":
-                            sb.append("My name is ").append(name).append(". ");
-                            break;
-                        case "age":
-                            sb.append("I am ").append(age).append(". ");
-                            break;
-                        case "sex":
-                            sb.append("I am ").append(sex == 'M' ? "male" : "female").append(". ");
-                            break;
+        set.forEach(x -> {
+            switch (x) {
+                case "name":
+                    sb.append("My name is ").append(name).append(". ");
+                    break;
+                case "age":
+                    sb.append("I am ").append(age).append(". ");
+                    break;
+                case "sex":
+                    sb.append("I am ").append(sex == 'M' ? "male" : "female").append(". ");
+                    break;
                     }
                 });
         return sb.toString().trim();
