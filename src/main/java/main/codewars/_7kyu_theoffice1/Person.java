@@ -1,4 +1,4 @@
-package main.codewars.theoffice1;
+package main.codewars._7kyu_theoffice1;
 
 class Person {
     final String name;
