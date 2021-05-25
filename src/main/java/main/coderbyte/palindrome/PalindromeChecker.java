@@ -1,9 +1,12 @@
 package main.coderbyte.palindrome;
 
+import java.util.Optional;
+
 public class PalindromeChecker {
     public static String checkIfPalindrome(String string) {
         final String success = "palindrome";
         final String failure = "not palindrome";
+        Optional<String> empty = Optional.of(string);
 
         for (int i = 0; i < string.length(); i++) {
             StringBuilder stringBuilder = new StringBuilder(string);
@@ -21,6 +24,7 @@ public class PalindromeChecker {
                 }
             }
         }
+        empty.orElse(failure)
         return failure;
     }
 }

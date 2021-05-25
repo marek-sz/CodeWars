@@ -16,4 +16,9 @@ public class PalindromeCheckerTest {
     public void shouldBePalindromeWhenRemovingTwoCharacters() {
         assertEquals("palindrome", PalindromeChecker.checkIfPalindrome("abcdjcba"));
     }
+
+    @Test
+    public void shouldReturnExceptionWhenPassingNull() {
+        assertEquals(" ", PalindromeChecker.checkIfPalindrome(null));
+    }
 }
