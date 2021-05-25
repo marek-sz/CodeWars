@@ -7,18 +7,18 @@ public class StringReplacer {
         StringBuilder sb = new StringBuilder();
         Stack<Character> stack = new Stack<>();
 
-        for (int i = 0; i < string.length(); i++) {
+        char[] chars = string.toCharArray();
+        for (Character character : chars) {
             if (stack.isEmpty()) {
-                stack.push(string.charAt(i));
-            } else if (string.charAt(i) == stack.lastElement()) {
-                stack.push(string.charAt(i));
+                stack.push(character);
+            } else if (character.equals(stack.lastElement())) {
+                stack.push(character);
             } else {
-                sb.append(stack.size());
-                sb.append(stack.pop());
+                sb.append(stack.size()).append(stack.lastElement());
                 stack.clear();
+                stack.push(character);
             }
         }
         return sb.toString();
     }
-
 }
