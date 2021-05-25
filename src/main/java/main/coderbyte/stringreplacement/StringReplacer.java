@@ -1,22 +1,26 @@
 package main.coderbyte.stringreplacement;
 
-import java.util.Stack;
-
 public class StringReplacer {
     public static String convertString(String string) {
         StringBuilder sb = new StringBuilder();
-        Stack<Character> stack = new Stack<>();
+        int counter = 1;
+        Character firstCharacter = string.charAt(0);
 
-        char[] chars = string.toCharArray();
-        for (Character character : chars) {
-            if (stack.isEmpty()) {
-                stack.push(character);
-            } else if (character.equals(stack.lastElement())) {
-                stack.push(character);
+        if (string.length() == 1) {
+            sb.append(counter).append(firstCharacter);
+        }
+
+        for (int i = 1; i < string.length(); i++) {
+            Character currentCharacter = string.charAt(i);
+            if (currentCharacter.equals(firstCharacter)) {
+                counter++;
             } else {
-                sb.append(stack.size()).append(stack.lastElement());
-                stack.clear();
-                stack.push(character);
+                sb.append(counter).append(firstCharacter);
+                counter = 1;
+                firstCharacter = currentCharacter;
+            }
+            if (string.length() - 1 == i) {
+                sb.append(counter).append(firstCharacter);
             }
         }
         return sb.toString();

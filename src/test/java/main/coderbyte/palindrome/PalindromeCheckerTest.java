@@ -1,5 +1,19 @@
 package main.coderbyte.palindrome;
 
-class PalindromeCheckerTest {
+import org.junit.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class PalindromeCheckerTest {
+    @Test
+    public void shouldBePalindromeWhenRemovingOneCharacter() {
+        assertEquals("palindrome", PalindromeChecker.checkIfPalindrome("abcdcba"));
+        assertEquals("palindrome", PalindromeChecker.checkIfPalindrome("abdcba"));
+        assertEquals("not palindrome", PalindromeChecker.checkIfPalindrome("asdfgh"));
+    }
+
+    @Test
+    public void shouldBePalindromeWhenRemovingTwoCharacters() {
+        assertEquals("palindrome", PalindromeChecker.checkIfPalindrome("abcdjcba"));
+    }
 }
